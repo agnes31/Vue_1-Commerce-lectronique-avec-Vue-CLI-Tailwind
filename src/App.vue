@@ -28,7 +28,7 @@
     </nav>
     <router-view />
     <MainFooter />
-    <SideBar />
+    <SideBar v-if="showSideBar" :toggle="toggleSideBar" />
   </div>
 </template>
 
@@ -39,6 +39,16 @@ export default {
   components: {
     SideBar,
     MainFooter
+  },
+  data () {
+    return {
+      showSideBar: false
+    }
+  },
+  methods: {
+    toggleSideBar () {
+      this.showSideBar = !this.showSideBar
+    }
   }
 }
 </script>
