@@ -26,7 +26,7 @@
         </div>
       </div>
     </nav>
-    <router-view />
+    <router-view :inventory = "inventory"/>
     <MainFooter />
     <SideBar v-if="showSideBar" :toggle="toggleSideBar" />
   </div>
@@ -35,6 +35,7 @@
 <script>
 import SideBar from './components/SideBar.vue'
 import MainFooter from './components/MainFooter.vue'
+import product from '@/products.json'
 export default {
   components: {
     SideBar,
@@ -42,7 +43,8 @@ export default {
   },
   data () {
     return {
-      showSideBar: false
+      showSideBar: false,
+      inventory: product
     }
   },
   methods: {
