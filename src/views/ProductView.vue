@@ -29,3 +29,24 @@
       </section>
     </div>
   </template>
+
+<script>
+export default {
+  props: ['inventory', 'add'],
+  computed: {
+    product () {
+      const product = this.inventory.find((p) => {
+        return p.id === Number(this.$route.params.id)
+      })
+      console.log(product)
+      return product
+    },
+    productIndex () {
+      const index = this.inventory.findIndex((p) => {
+        return p.id === Number(this.$route.params.id)
+      })
+      return index
+    }
+  }
+}
+</script>
