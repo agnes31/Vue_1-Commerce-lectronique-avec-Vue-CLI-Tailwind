@@ -51,3 +51,44 @@
       </div>
     </div>
   </template>
+
+<script>
+import ProductDataService from '@/services/ProductDataService'
+export default {
+  props: ['addInv'],
+  data () {
+    return {
+      message: null,
+      submitted: false,
+      product: {
+        name: '',
+        photo: 'https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg',
+        price: '',
+        description: '',
+        type: ''
+      }
+    }
+  },
+  methods: {
+    saveProduct () {
+      ProductDataService.create(this.product)
+        .then((response) => {
+          // console.log(response.data)
+          this.product.id = response.data.id
+          this.addInv(this.product)
+          this.message = null
+          this.submitted = true
+          // this.$router.push({ name: 'home' })
+        })
+        .catch((e) => {
+          //  console.log(e)
+          this.message = e.response.data.message
+        })
+    },
+    newProduct () {
+      this.submitted = false
+      this.product = {}
+    }
+  }
+}
+</script>
