@@ -4,6 +4,6 @@ module.exports = defineConfig({
 })
 module.exports = {
   devServer: {
-    port: 8081
+    port: 8083 // doit etre le meme que dans le server.js   origin: 'http://localhost:8083',
   }
 }
