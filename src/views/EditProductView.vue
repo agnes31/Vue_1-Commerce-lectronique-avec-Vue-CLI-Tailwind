@@ -81,7 +81,7 @@
 
 import ProductDataService from '@/services/ProductDataService'
 export default {
-  props: ['inventory', 'updateInv'],
+  props: ['inventory', 'updateInv', 'removeInv', 'remItem'],
   data () {
     return {
       message: null,
@@ -101,8 +101,21 @@ export default {
         .catch((e) => {
           this.message = e.response.data.message
         })
+    },
+    deleteProduct () {
+      ProductDataService.delete(this.id)
+        .then(response => {
+          this.removeInv(this.productIndex)
+          this.remItem(this.product.name)
+          this.$router.push({ name: 'home' })
+        })
+        .catch((e) => {
+          this.message = e.response.data.message
+        }
+        )
     }
   },
+
   computed: {
     productIndex () {
       const index = this.inventory.findIndex((p) => {
@@ -118,4 +131,5 @@ export default {
       })
   }
 }
+
 </script>
