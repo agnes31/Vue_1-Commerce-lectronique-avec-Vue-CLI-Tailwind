@@ -2,8 +2,14 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ProductView from '@/views/ProductView.vue'
 import AddProductView from '@/views/AddProductView.vue'
+import EditProductView from '@/views/EditProductView.vue'
 
 const routes = [
+  {
+    path: '/edit-product/:id',
+    name: 'edit-product',
+    component: EditProductView
+  },
   {
     path: '/',
     name: 'home',
