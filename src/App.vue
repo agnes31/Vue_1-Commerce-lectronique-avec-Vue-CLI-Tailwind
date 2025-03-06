@@ -71,6 +71,9 @@ export default {
     },
     removeItem (name) {
       delete this.cart[name]
+    },
+    addInventory (product) {
+      this.inventory.push(product)
     }
   },
   computed: {
