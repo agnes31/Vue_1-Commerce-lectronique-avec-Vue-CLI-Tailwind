@@ -52,7 +52,7 @@ export default {
   },
   data () {
     return {
-      showSideBar: true,
+      showSideBar: false,
       inventory: [],
       cart: {}
     }
