@@ -26,7 +26,7 @@
         </div>
       </div>
     </nav>
-    <router-view :inventory="inventory" :add="addToCart" />
+    <router-view :inventory="inventory" :add="addToCart"  :addInv = "addInventory" />
     <MainFooter />
     <SideBar v-if="showSideBar" :toggle="toggleSideBar" :cart="cart" :inventory="inventory" :remove="removeItem" />
   </div>
