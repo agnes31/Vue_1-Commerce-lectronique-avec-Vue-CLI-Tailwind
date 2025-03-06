@@ -43,8 +43,13 @@ export default {
   mounted () {
     ProductDataService.getAll()
       .then(response => {
-        this.inventory = response.data
-        console.log(response.data)
+        this.inventory = response.data.map(product => {
+          return {
+            ...product,
+            quantity: product.quantity || 0
+          }
+        })
+        console.log(this.inventory)
       })
       .catch(error => {
         console.error('Error fetching products:', error)
