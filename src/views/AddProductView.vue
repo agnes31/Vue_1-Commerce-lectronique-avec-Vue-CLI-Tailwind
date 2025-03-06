@@ -67,7 +67,8 @@ export default {
         photo: 'https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg',
         price: '',
         description: '',
-        type: ''
+        type: '',
+        quantity: 1
       }
     }
   },

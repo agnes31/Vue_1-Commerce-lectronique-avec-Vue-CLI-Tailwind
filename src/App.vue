@@ -26,7 +26,8 @@
         </div>
       </div>
     </nav>
-    <router-view :inventory="inventory" :add="addToCart"  :addInv = "addInventory" :updateInv = "updateInventory" />
+    <router-view :inventory="inventory" :add="addToCart"  :addInv = "addInventory" :updateInv = "updateInventory"  :removeInv = "removeInventory"
+    :remItem = "removeItem" />
     <MainFooter />
     <SideBar v-if="showSideBar" :toggle="toggleSideBar" :cart="cart" :inventory="inventory" :remove="removeItem" />
   </div>
@@ -51,7 +52,7 @@ export default {
   },
   data () {
     return {
-      showSideBar: false,
+      showSideBar: true,
       inventory: [],
       cart: {}
     }
@@ -81,6 +82,9 @@ export default {
       this.inventory[index].price = data.price
       this.inventory[index].description = data.description
       this.inventory[index].type = data.type
+    },
+    removeInventory (index) {
+      this.inventory.splice(index, 1)
     }
   },
   computed: {
